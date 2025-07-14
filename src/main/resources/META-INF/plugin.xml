@@ -1,0 +1,38 @@
+<idea-plugin>
+    <id>com.swiftcoder.json2pojo</id>
+    <name>JSON to Java POJO Generator</name>
+    <vendor email="" url="">SwiftCoder</vendor>
+
+    <description><![CDATA[
+    A plugin that generates Java POJOs from JSON input with support for Jackson and Lombok annotations.
+    Features:
+    - Generate Java classes from JSON
+    - Support for Jackson annotations
+    - Support for Lombok annotations (@Getter, @Setter, etc.)
+    - Configurable annotation selection
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add any extensions here -->
+    </extensions>
+
+    <actions>
+        <action id="Json2Pojo.GenerateAction"
+                class="com.swiftcoder.json2pojo.actions.GeneratePojoAction"
+                text="Generate POJO from JSON"
+                description="Generate Java POJO classes from JSON input">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt J"/>
+        </action>
+        
+        <action id="Json2Pojo.NewPojoAction"
+                class="com.swiftcoder.json2pojo.actions.NewPojoAction"
+                text="POJO from JSON"
+                description="Create Java POJO classes from JSON input">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewClass"/>
+        </action>
+    </actions>
+</idea-plugin>
